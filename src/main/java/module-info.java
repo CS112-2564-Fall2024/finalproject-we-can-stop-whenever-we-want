@@ -1,7 +1,7 @@
 module edu.miracosta.cs112.finalproject.finalproject {
     requires javafx.controls;
     requires javafx.fxml;
-    requires java.desktop;
+    requires javafx.graphics;
 
 
     opens edu.miracosta.cs112.finalproject.finalproject to javafx.fxml;
