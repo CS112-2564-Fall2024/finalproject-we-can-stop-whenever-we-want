@@ -13,4 +13,6 @@ public class gameController {
     public void initialize(){
         scoreGoesHere.setText(SCORE_TEXT); //error here saying string cannot be converted to long
     }
+
+
 }

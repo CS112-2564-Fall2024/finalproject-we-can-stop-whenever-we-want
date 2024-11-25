@@ -38,4 +38,13 @@ public class menuController {
         stage.setTitle(GAME_TITLE_TEXT); // Set the title for the new scene
         stage.show(); // Display the new scene
     }
+
+    public void StartGame() throws IOException {
+        Stage stage = (Stage) titleText.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(TaxEvadersMain.class.getResource("game-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setScene(scene);
+        stage.setTitle(GAME_TITLE_TEXT);
+        stage.show();
+    }
 }
