@@ -53,7 +53,7 @@
                   <Font size="40.0" />
                </font>
             </Label>
-            <Button fx:id="startButton" layoutX="238.0" layoutY="135.0" mnemonicParsing="false" onAction="#StartGame" prefHeight="60.0" prefWidth="124.0" text="Start" textAlignment="CENTER">
+            <Button fx:id="startButton" layoutX="238.0" layoutY="135.0" mnemonicParsing="false"  prefHeight="60.0" prefWidth="124.0" text="Start" textAlignment="CENTER">
                <font>
                   <Font size="30.0" />
                </font>

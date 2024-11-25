@@ -15,7 +15,7 @@ public class TaxEvadersMain extends Application {
     @Override
     public void start(Stage stage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(TaxEvadersMain.class.getResource("menu-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
+        Scene scene = new Scene(fxmlLoader.load()); //error here??
         stage.setScene(scene);
         stage.setTitle(MAIN_TITLE_TEXT);
         stage.show();
