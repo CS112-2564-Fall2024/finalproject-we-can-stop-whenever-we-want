@@ -5,8 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.awt.event.ActionEvent;
+
 import java.io.IOException;
+
+import static edu.miracosta.cs112.finalproject.finalproject.Constants.MAIN_TITLE_TEXT;
 
 public class TaxEvadersMain extends Application {
 

@@ -1,5 +1,6 @@
 package edu.miracosta.cs112.finalproject.finalproject.controllers;
 
+import edu.miracosta.cs112.finalproject.finalproject.TaxEvadersMain;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -8,8 +9,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
+
+import static edu.miracosta.cs112.finalproject.finalproject.Constants.*;
 
 public class menuController {
     @FXML
@@ -29,8 +33,8 @@ public class menuController {
 //
 //    }
     public void handleStartButton() throws IOException {
-        Stage stage = (Stage)titleLabel.getScene().getWindow();
-        FXMLLoader fxmlLoader = new FXMLLoader(TaxEvadersMain.class.getResource(game-view.fxml));
+        Stage stage = (Stage)titleText.getScene().getWindow();
+        FXMLLoader fxmlLoader = new FXMLLoader(TaxEvadersMain.class.getResource("game-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.setTitle(GAME_TITLE_TEXT);
