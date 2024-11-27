@@ -3,6 +3,7 @@ package edu.miracosta.cs112.finalproject.finalproject;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.stage.Stage;
 
 
@@ -19,6 +20,7 @@ public class TaxEvadersMain extends Application {
         stage.setScene(scene);
         stage.setTitle(MAIN_TITLE_TEXT);
         stage.show();
+
     }
 
     public static void main(String[] args) {
