@@ -8,7 +8,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.awt.*;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.paint.Color;
+
 import java.util.Random;
 
 import static edu.miracosta.cs112.finalproject.finalproject.Constants.RAD_IMAGE_PATH;
@@ -25,7 +27,9 @@ public class gameController {
     @FXML
     ImageView lifeThree;
     @FXML
-    Canvas canvas;
+    private Canvas canvas; // Make sure this is injected correctly
+
+    private GraphicsContext gc;
 
     double drawX;
     double drawY;
@@ -47,8 +51,8 @@ public class gameController {
             @Override
             public void handle(long now) {
                 gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-                gc.getFill(Color.GREEN);
-                gc.fillOval(drawX, drawY, canvas.getWidth(), canvas.getHeight());
+                gc.setFill(Color.GREEN);
+                gc.fillOval(drawX + 200, drawY, 100, 100);
                 drawX += deltaX;
                 drawY += deltaY;
             }
