@@ -27,14 +27,10 @@ public class gameController {
     @FXML
     ImageView lifeThree;
     @FXML
-    private Canvas canvas; // Used ai to fix the canvas fxml
+    Canvas canvas; // Used ai to fix the canvas fxml
 
     private GraphicsContext gc;
 
-//    double drawX;
-//    double drawY;
-//    double deltaX;
-//    double deltaY;
     Random random = new Random();
     public void initialize(){
         scoreGoesHere.setText(SCORE_TEXT);
@@ -61,7 +57,7 @@ public class gameController {
 //            public void handleObjects(){
 //                gc.setFill(Color.GREEN);
 //                gc.fillOval(deltaX, drawY - 200, 100, 100);
-////                drawX += deltaX;
+//                drawX += deltaX;
 //                drawY += deltaY;
             }
         };
