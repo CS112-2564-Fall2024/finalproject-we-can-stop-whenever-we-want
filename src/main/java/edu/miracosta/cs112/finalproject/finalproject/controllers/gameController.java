@@ -31,10 +31,10 @@ public class gameController {
 
     private GraphicsContext gc;
 
-    double drawX;
-    double drawY;
-    double deltaX;
-    double deltaY;
+//    double drawX;
+//    double drawY;
+//    double deltaX;
+//    double deltaY;
     Random random = new Random();
     public void initialize(){
         scoreGoesHere.setText(SCORE_TEXT);
@@ -46,8 +46,8 @@ public class gameController {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
 
-        deltaX = random.nextDouble(600);
-        deltaY = 1;
+//        deltaX = random.nextDouble(600);
+//        deltaY = 1;
         AnimationTimer timer = new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -55,14 +55,14 @@ public class gameController {
                 gc.setFill(Color.BLACK);
                 gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
-                handleObjects();
-
-            }
-            public void handleObjects(){
-                gc.setFill(Color.GREEN);
-                gc.fillOval(deltaX, drawY - 200, 100, 100);
-//                drawX += deltaX;
-                drawY += deltaY;
+//                handleObjects();
+//
+//            }
+//            public void handleObjects(){
+//                gc.setFill(Color.GREEN);
+//                gc.fillOval(deltaX, drawY - 200, 100, 100);
+////                drawX += deltaX;
+//                drawY += deltaY;
             }
         };
         timer.start();
