@@ -22,15 +22,15 @@ public class AlienObject <A extends Drawable> extends GameObject {
 
 //    @Override
     public void update() {
-        this.drawY -= 1;
+        this.positionY -= 1;
     }
 
 //    @Override
     public void draw(GraphicsContext gc) {
         if (alien != null) {
             alien.draw(gc,
-                    this.drawX-this.radius,
-                    this.drawY-this.radius,
+                    this.positionX-this.radius,
+                    this.positionY-this.radius,
                     this.radius*2,
                     this.radius*2);
         }

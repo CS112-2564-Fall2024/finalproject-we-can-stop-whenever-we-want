@@ -3,12 +3,12 @@ package edu.miracosta.cs112.finalproject.finalproject.Models;
 import edu.miracosta.cs112.finalproject.finalproject.controllers.gameController;
 
 public abstract class GameObject extends gameController {
-    protected double drawX;
-    protected double drawY;
+    protected double positionX;
+    protected double positionY;
     protected double radius;
     protected GameObject(double positionX, double positionY, double radius) {
-        this.drawX = positionX;
-        this.drawY = positionY;
+        this.positionX = positionX;
+        this.positionY = positionY;
         this.radius = radius;
     }
 }

@@ -1,5 +1,6 @@
 package edu.miracosta.cs112.finalproject.finalproject.controllers;
 
+import edu.miracosta.cs112.finalproject.finalproject.Models.GameStart;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 
@@ -9,6 +10,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.canvas.Canvas; // Used ai to fix the canvas import
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 import java.util.Random;
@@ -29,10 +31,13 @@ public class gameController {
     @FXML
     Canvas canvas; // Used ai to fix the canvas fxml
 
+
+    GameStart gameStart;
     private GraphicsContext gc;
 
     Random random = new Random();
     public void initialize(){
+        gameStart = new GameStart(canvas, this);
         scoreGoesHere.setText(SCORE_TEXT);
         Image image = new Image(RAD_IMAGE_PATH);
         lifeOne.setImage(image);
@@ -42,30 +47,39 @@ public class gameController {
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
 
-//        deltaX = random.nextDouble(600);
-//        deltaY = 1;
-        AnimationTimer timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-                gc.setFill(Color.BLACK);
-                gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
-//                handleObjects();
+//        double deltaX = random.nextDouble(600);
+//        double deltaY = 1;
+//        AnimationTimer timer = new AnimationTimer() {
+//            @Override
+//            public void handle(long now) {
+//
 //
 //            }
 //            public void handleObjects(){
+//                ship.update();
+//                ship.draw(gc);
 //                gc.setFill(Color.GREEN);
-//                gc.fillOval(deltaX, drawY - 200, 100, 100);
-//                drawX += deltaX;
-//                drawY += deltaY;
-            }
-        };
-        timer.start();
-
+//                gc.fillOval(deltaX, 300 - 200, 100, 100);
+//                0 += deltaX;
+//                50 += deltaY;
+//            }
+//        };
+//        timer.start();
+//
 
     }
+
+    public void handleKeyPressed(KeyEvent event) {
+        gameStart.handleKeyPressed(event);
+    }
+
+    public void handleKeyReleased(KeyEvent event) {
+        gameStart.handleKeyReleased(event);
+    }
+
     public static void main(String[]args) { launch(); }
+
+
 
 
 }
