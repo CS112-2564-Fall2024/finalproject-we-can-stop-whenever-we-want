@@ -5,16 +5,16 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Zipper implements Drawable {
-    static Image ship;
+    static Image ship3;
 
     public Zipper() {
-        if (ship == null) {
-            ship = new Image("file:./src/main/resources/Images/nomoni.png");
+        if (ship3 == null) {
+            ship3 = new Image("file:.src/main/resources/Images/alien.png");
         }
     }
 
     @Override
     public void draw(GraphicsContext gc, double x, double y, double width, double height) {
-        gc.drawImage(ship, x, y, width, height);
+        gc.drawImage(ship3, x, y, width, height);
     }
 }

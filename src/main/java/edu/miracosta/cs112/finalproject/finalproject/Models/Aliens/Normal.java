@@ -7,11 +7,10 @@ import javafx.scene.paint.Color;
 
 public class Normal implements Drawable {
     static Image ship;
-    GraphicsContext gc;
 
     public Normal() {
         if (ship == null) {
-            ship = new Image("file:./src/main/resources/Images/nomoni.png");
+            ship = new Image("file:.src/main/resources/Images/alien.png");
         }
     }
 

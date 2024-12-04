@@ -50,33 +50,6 @@ public class gameController {
         lifeThree.setImage(image);
 
 
-
-
-//        GraphicsContext gc = canvas.getGraphicsContext2D();
-//
-//
-//        deltaX = random.nextDouble(600);
-//        deltaY = 1;
-//        AnimationTimer timer = new AnimationTimer() {
-//            @Override
-//            public void handle(long now) {
-//                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-//                gc.setFill(Color.BLACK);
-//                gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-//
-//                handleObjects();
-//
-//            }
-//            public void handleObjects(){
-//                gc.setFill(Color.GREEN);
-//                gc.fillOval(deltaX, drawY - 200, 100, 100);
-//                drawX += deltaX;
-//                drawY += deltaY;
-//            }
-//        };
-//        timer.start();
-
-
     }
     public void handleKeyPressed(KeyEvent event) {
         gameStart.handleKeyPressed(event);

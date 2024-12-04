@@ -6,9 +6,11 @@ import java.util.Random;
 
 public class AlienObject <A extends Drawable> extends GameObject {
     static Random random = new Random();
+
     private A alien;
     public AlienObject(A alien) {
         super(random.nextDouble(50,550), 0, 20);
+
         setAlien(alien);
     }
 

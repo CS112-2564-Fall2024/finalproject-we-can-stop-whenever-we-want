@@ -5,16 +5,16 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
 public class Tank implements Drawable {
-    static Image ship;
+    static Image ship2;
 
     public Tank() {
-        if (ship == null) {
-            ship = new Image("file:./src/main/resources/Images/nomoni.png");
+        if (ship2 == null) {
+            ship2 = new Image("file:.src/main/resources/Images/alien.png");
         }
     }
 
     @Override
     public void draw(GraphicsContext gc, double x, double y, double width, double height) {
-        gc.drawImage(ship, x, y, width, height);
+        gc.drawImage(ship2, x, y, width, height);
     }
 }

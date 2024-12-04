@@ -25,8 +25,12 @@ public class Player extends GameObject {
         this.deltaX = deltaX;
     }
 
+    public Double getDeltaX(double deltaX){ return deltaX; }
+
     public void update() {
         this.drawX += deltaX;
+
+
 
         //screen boundries
         if(drawX - drawWidth / 2 < 0){
