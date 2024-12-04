@@ -10,12 +10,12 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import javafx.scene.canvas.Canvas; // Used ai to fix the canvas import
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 import java.util.Random;
 
-import static edu.miracosta.cs112.finalproject.finalproject.Constants.RAD_IMAGE_PATH;
-import static edu.miracosta.cs112.finalproject.finalproject.Constants.SCORE_TEXT;
+import static edu.miracosta.cs112.finalproject.finalproject.Constants.*;
 import static javafx.application.Application.launch;
 
 public class gameController {
@@ -44,7 +44,7 @@ public class gameController {
         canvas.requestFocus();
 
         scoreGoesHere.setText(SCORE_TEXT);
-        Image image = new Image(RAD_IMAGE_PATH);
+        Image image = new Image(PLAYER_IMAGE_PATH);
         lifeOne.setImage(image);
         lifeTwo.setImage(image);
         lifeThree.setImage(image);
@@ -78,6 +78,14 @@ public class gameController {
 
 
     }
+    public void handleKeyPressed(KeyEvent event) {
+        gameStart.handleKeyPressed(event);
+    }
+
+    public void handleKeyReleased(KeyEvent event) {
+        gameStart.handleKeyReleased(event);
+    }
+
     public static void main(String[]args) { launch(); }
 
 

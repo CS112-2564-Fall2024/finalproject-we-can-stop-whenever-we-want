@@ -1,43 +1,50 @@
 
 package edu.miracosta.cs112.finalproject.finalproject.Models;
 
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.RenderingHints;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
+import static edu.miracosta.cs112.finalproject.finalproject.Constants.PLAYER_IMAGE_PATH;
 
-public class Player extends JPanel {
+public class Player extends GameObject {
+    double deltaX;
+    double drawWidth;
+    double drawHeight;
+    Image image;
+    private final double screenWidth = 600;
 
-    // Override the paintComponent method to draw
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g); // Call the parent class's method to clear the panel
-        Graphics2D g2d = (Graphics2D) g;
 
-        // Enable antialiasing for smoother graphics
-        g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-
-        // Set color to red and draw an oval
-        g2d.setColor(Color.RED);
-        g2d.fillOval(50, 50, 200, 100); // x, y, width, height
+    public Player() {
+        super(300,750, 25);
+        image = new Image(PLAYER_IMAGE_PATH);
+        drawWidth = 100;
+        drawHeight = 100;
     }
 
-    public static void main(String[] args) {
-        // Create a JFrame to hold the panel
-
-        Player player = new Player();
-
+    public void setDeltaX(double deltaX) {
+        this.deltaX = deltaX;
     }
 
-   // public class bullet <B extends Drawable> extends GameObject{
+    public void update() {
+        this.drawX += deltaX;
 
-        //private B bullet;
-        //public bullet(B bullet) {
-            //super(playerPosition.nextDouble(600), - 200, 20);
-        //}
-    //}
+        //screen boundries
+        if(drawX - drawWidth / 2 < 0){
+            drawX = drawWidth/ 2;
+        }
+
+        if(drawX + drawWidth / 2 > screenWidth){
+            drawX = screenWidth - drawWidth / 2;
+        }
+    }
+
+    public void draw(GraphicsContext gc) {
+        gc.drawImage(image,
+                this.drawX-drawWidth/2,
+                this.drawY-drawHeight/2,
+                drawWidth,
+                drawHeight);
+    }
+
+
 }

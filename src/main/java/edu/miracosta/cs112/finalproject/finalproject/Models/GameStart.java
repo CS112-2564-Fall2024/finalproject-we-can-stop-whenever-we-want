@@ -7,6 +7,7 @@ import edu.miracosta.cs112.finalproject.finalproject.controllers.gameController;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class GameStart {
     Random random = new Random();
 
     Player player;
-    public Player getPlayer() { return player; }
+//    public Player getPlayer() { return player; }
 
     ArrayList<GameObject> alienList = new ArrayList<>();
 
@@ -32,6 +33,7 @@ public class GameStart {
         public GameStart(Canvas canvas, gameController controller) {
 
             this.controller = controller;
+            player = new Player();
             gc = canvas.getGraphicsContext2D();
 
 
@@ -43,7 +45,7 @@ public class GameStart {
                     gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
                     handleObjectUpdate();
-                    handleCollision();
+//                    handleCollision();
                     handleRespawn();
 
                     handleObjects();
@@ -53,7 +55,8 @@ public class GameStart {
                 }
 
                 public void handleObjects() {
-
+                    player.update();
+                    player.draw(gc);
 
                 }
             };
@@ -61,14 +64,14 @@ public class GameStart {
         }
 
     public void handleObjectUpdate() {
-//        player.update();
-//        player.draw(gc);
+        player.update();
+        player.draw(gc);
 
         GameObject offscreen = null;
         for(GameObject alien : alienList){
             alien.update();
             alien.draw(gc);
-            if (alien.getPositionY() < 900) {
+            if (alien.getPositionY() < -50) {
                 offscreen = alien;
             }
         }
@@ -78,14 +81,14 @@ public class GameStart {
         }
     }
 
-    public void handleCollision() {
-        GameObject collision = player.isColliding(alienList);
-        if (collision instanceof AlienObject<?> alienObject) {
-            if (alienObject.getAlienObject() instanceof Normal) {
-                player.takeDamage(1);
-            }
-        }
-    }
+//    public void handleCollision() {
+//        GameObject collision = player.isColliding(alienList);
+//        if (collision instanceof AlienObject<?> alienObject) {
+//            if (alienObject.getAlienObject() instanceof Normal) {
+//                player.takeDamage(1);
+//            }
+//        }
+//    }
 
     public void handleRespawn() {
         respawn -= 0.1;
@@ -106,5 +109,19 @@ public class GameStart {
         };
     }
 
+    public void handleKeyPressed(KeyEvent event) {
+        switch (event.getCode()) {
+            case LEFT: player.setDeltaX(-1.25); break;
+            case RIGHT: player.setDeltaX(1.25); break;
+            default: break;
+        }
+    }
+
+    public void handleKeyReleased(KeyEvent event) {
+        switch (event.getCode()) {
+            case LEFT, RIGHT: player.setDeltaX(0); break;
+            default: break;
+        }
+    }
 
 }
