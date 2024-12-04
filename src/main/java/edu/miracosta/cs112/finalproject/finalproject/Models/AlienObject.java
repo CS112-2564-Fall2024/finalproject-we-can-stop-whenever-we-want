@@ -8,7 +8,7 @@ public class AlienObject <A extends Drawable> extends GameObject {
     static Random random = new Random();
     private A alien;
     public AlienObject(A alien) {
-        super(random.nextDouble(600), - 200, 20);
+        super(random.nextDouble(50,550), 0, 10);
         setAlien(alien);
     }
 
@@ -20,12 +20,12 @@ public class AlienObject <A extends Drawable> extends GameObject {
         this.alien = alien;
     }
 
-//    @Override
+    @Override
     public void update() {
-        this.drawY -= 1;
+        this.drawY += 1;
     }
 
-//    @Override
+    @Override
     public void draw(GraphicsContext gc) {
         if (alien != null) {
             alien.draw(gc,
