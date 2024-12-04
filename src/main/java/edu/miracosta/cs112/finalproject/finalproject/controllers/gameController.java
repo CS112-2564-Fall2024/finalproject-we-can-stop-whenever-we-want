@@ -46,6 +46,8 @@ public class gameController {
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
 
+        canvas.setFocusTraversable(true);
+        canvas.requestFocus();
 
 //        double deltaX = random.nextDouble(600);
 //        double deltaY = 1;

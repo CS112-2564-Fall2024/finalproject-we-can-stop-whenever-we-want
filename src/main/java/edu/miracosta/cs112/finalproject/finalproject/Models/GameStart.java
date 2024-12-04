@@ -7,6 +7,8 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 
+import java.util.Random;
+
 public class GameStart {
 
     gameController controller;
@@ -15,10 +17,9 @@ public class GameStart {
 
     //initializing player
     Player ship;
-    public Player getShip() { return ship; }
+    //public Player getShip() { return ship; }
 
-
-    public void GameStart(Canvas canvas, gameController controller) {
+    public GameStart(Canvas canvas, gameController controller) {
         gc = canvas.getGraphicsContext2D();
         ship = new Player();
         this.controller = controller;
@@ -34,10 +35,10 @@ public class GameStart {
                 handleObjects();
 
             }
-
             public void handleObjects() {
                 ship.update();
                 ship.draw(gc);
+
             }
         };
         timer.start();
@@ -45,8 +46,6 @@ public class GameStart {
 
     public void handleKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
-            case UP: ship.setDeltaY(-1.25); break;
-            case DOWN: ship.setDeltaY(1.25); break;
             case LEFT: ship.setDeltaX(-1.25); break;
             case RIGHT: ship.setDeltaX(1.25); break;
             default: break;
@@ -55,7 +54,6 @@ public class GameStart {
 
     public void handleKeyReleased(KeyEvent event) {
         switch (event.getCode()) {
-            case UP, DOWN: ship.setDeltaY(0); break;
             case LEFT, RIGHT: ship.setDeltaX(0); break;
             default: break;
         }

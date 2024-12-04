@@ -5,28 +5,34 @@ import javafx.scene.image.Image;
 
 public class Player extends GameObject {
     double deltaX;
-    double deltaY;
     double drawWidth;
     double drawHeight;
     Image image;
+    private final double screenWidth = 600;
+
 
     public Player() {
-        super(100,200, 25);
+        super(300,750, 25);
         image = new Image("file:./src/main/resources/images/spaceship.png");
         drawWidth = 100;
-        drawHeight = 50;
+        drawHeight = 100;
     }
 
     public void setDeltaX(double deltaX) {
         this.deltaX = deltaX;
     }
-    public void setDeltaY(double deltaY) {
-        this.deltaY = deltaY;
-    }
 
     public void update() {
-//        this.positionX;
-//        this.positionY;
+        this.positionX += deltaX;
+
+        //screen boundries
+        if(positionX - drawWidth / 2 < 0){
+            positionX = drawWidth/ 2;
+        }
+
+        if(positionX + drawWidth / 2 > screenWidth){
+            positionX = screenWidth - drawWidth / 2;
+        }
     }
 
     public void draw(GraphicsContext gc) {
