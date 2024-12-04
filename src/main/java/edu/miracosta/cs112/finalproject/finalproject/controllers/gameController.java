@@ -1,5 +1,6 @@
 package edu.miracosta.cs112.finalproject.finalproject.controllers;
 
+import edu.miracosta.cs112.finalproject.finalproject.Models.GameStart;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 
@@ -29,28 +30,40 @@ public class gameController {
     @FXML
     Canvas canvas; // Used ai to fix the canvas fxml
 
-    private GraphicsContext gc;
+    //private GraphicsContext gc;
+    GameStart gameStart;
 
-    Random random = new Random();
+
+
+    //Random random = new Random();
     public void initialize(){
+
+        gameStart = new GameStart(canvas, this);
+
+        canvas.setFocusTraversable(true);
+        canvas.requestFocus();
+
         scoreGoesHere.setText(SCORE_TEXT);
         Image image = new Image(RAD_IMAGE_PATH);
         lifeOne.setImage(image);
         lifeTwo.setImage(image);
         lifeThree.setImage(image);
 
-        GraphicsContext gc = canvas.getGraphicsContext2D();
 
 
+
+//        GraphicsContext gc = canvas.getGraphicsContext2D();
+//
+//
 //        deltaX = random.nextDouble(600);
 //        deltaY = 1;
-        AnimationTimer timer = new AnimationTimer() {
-            @Override
-            public void handle(long now) {
-                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-                gc.setFill(Color.BLACK);
-                gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
-
+//        AnimationTimer timer = new AnimationTimer() {
+//            @Override
+//            public void handle(long now) {
+//                gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
+//                gc.setFill(Color.BLACK);
+//                gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+//
 //                handleObjects();
 //
 //            }
@@ -59,9 +72,9 @@ public class gameController {
 //                gc.fillOval(deltaX, drawY - 200, 100, 100);
 //                drawX += deltaX;
 //                drawY += deltaY;
-            }
-        };
-        timer.start();
+//            }
+//        };
+//        timer.start();
 
 
     }

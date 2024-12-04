@@ -13,6 +13,7 @@ import static edu.miracosta.cs112.finalproject.finalproject.Constants.MAIN_TITLE
 
 public class TaxEvadersMain extends Application {
 
+
     @Override
     public void start(Stage stage) throws IOException{
         FXMLLoader fxmlLoader = new FXMLLoader(TaxEvadersMain.class.getResource("menu-view.fxml"));
