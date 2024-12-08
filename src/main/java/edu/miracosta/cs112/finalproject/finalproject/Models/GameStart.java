@@ -9,8 +9,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.Background;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,6 +19,7 @@ public class GameStart {
 
     double respawnReset = 10;
     double respawn = 10;
+    double fireRate = 2;
 
     gameController controller;
     GraphicsContext gc;
@@ -28,10 +27,14 @@ public class GameStart {
 
     Random random = new Random();
 
+
     Player player;
 //    public Player getPlayer() { return player; }
 
     ArrayList<GameObject> alienList = new ArrayList<>();
+    ArrayList<GameObject> bulletList = new ArrayList<>();
+
+
 
 
         public GameStart(Canvas canvas, gameController controller) {
@@ -68,6 +71,8 @@ public class GameStart {
             timer.start();
         }
 
+
+
     public void handleObjectUpdate() {
         player.update();
         player.draw(gc);
@@ -76,13 +81,21 @@ public class GameStart {
         for(GameObject alien : alienList){
             alien.update();
             alien.draw(gc);
-            if (alien.getPositionY() < -50) {
+            if (alien.getPositionY() > 840) {
                 offscreen = alien;
+            }
+        }
+        for (GameObject boolet : bulletList) {
+            boolet.update();
+            boolet.draw(gc);
+            if (boolet.getPositionY() < 0) {
+                offscreen = boolet;
             }
         }
         if (offscreen != null) {
 
             alienList.remove(offscreen);
+            bulletList.remove(offscreen);
         }
     }
 
@@ -98,7 +111,6 @@ public class GameStart {
     public void handleRespawn() {
         respawn -= 0.1;
         if (respawn <= 0) {
-            respawnReset -= 0.1;
             respawn = respawnReset;
             GameObject alien = spawnGameObject();
             alienList.add(alien);
@@ -115,10 +127,20 @@ public class GameStart {
         };
     }
 
+    public Boolet spawnBullet(double px) {
+
+
+        return new Boolet<>(new Bullet(),px);  // Assuming Bullet is a Drawable class
+    }
+
+
     public void handleKeyPressed(KeyEvent event) {
+
+
         switch (event.getCode()) {
             case LEFT: player.setDeltaX(-1.25); break;
             case RIGHT: player.setDeltaX(1.25); break;
+            case SPACE: Boolet newBoolet = spawnBullet(player.drawX);bulletList.add(newBoolet); break;
             default: break;
         }
     }

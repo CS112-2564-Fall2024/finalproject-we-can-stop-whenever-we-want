@@ -9,7 +9,7 @@ public class Bullet implements Drawable{
 
     public Bullet() {
         if (projectile == null) {
-            projectile = new Image("file:./src/main/resources/Images/nomoni.png");
+            projectile = new Image("file:./src/main/resources/Images/bullet.png");
         }
     }
 

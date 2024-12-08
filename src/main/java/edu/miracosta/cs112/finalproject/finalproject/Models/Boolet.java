@@ -9,8 +9,8 @@ public class Boolet <B extends Drawable> extends GameObject {
     static Player player = new Player();
 
     private B boolet;
-    public Boolet(B boolet) {
-        super(player.getDeltaX(player.deltaX), 0, 10);
+    public Boolet(B boolet, double px) {
+        super(px, 750, 10);
         setBoolet(boolet);
     }
 
@@ -33,7 +33,7 @@ public class Boolet <B extends Drawable> extends GameObject {
             boolet.draw(gc,
                     this.drawX-this.radius,
                     this.drawY-this.radius,
-                    this.radius*2,
+                    this.radius,
                     this.radius*2);
         }
     }
