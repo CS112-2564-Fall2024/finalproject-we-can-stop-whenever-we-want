@@ -9,13 +9,12 @@ public class AlienObject <A extends Drawable> extends GameObject {
 
     private A alien;
     public AlienObject(A alien) {
+
         super(random.nextDouble(50,550), 0, 20);
-
         setAlien(alien);
-    }
 
-    public A getAlienObject() {
-        return alien;
+    }
+    public A getAlienObject() {return alien;
     }
 
     public void setAlien(A alien) {

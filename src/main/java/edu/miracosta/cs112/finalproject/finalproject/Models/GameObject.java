@@ -27,24 +27,24 @@ public abstract class GameObject extends gameController {
     public abstract void update();
     public abstract void draw(GraphicsContext gc);
 
-//    public GameObject isColliding(List<GameObject> gameObjects) {
-//        for (GameObject other : gameObjects) {
-//            if (isColliding(other) != null) {
-//                return other;
-//            }
-//        }
-//        return null;
-//    }
-//
-//    public GameObject isColliding(GameObject other) {
-//        if (this != other && other != null) {
-//            double distance = Math.pow(this.drawX - other.drawX, 2)
-//                    + Math.pow(this.drawY - other.drawY, 2);
-//            double radii = Math.pow(this.radius + other.radius, 2);
-//            if (distance < radii) {
-//                return other;
-//            }
-//        }
-//        return null;
-//    }
+    public GameObject isColliding(List<GameObject> gameObjects) {
+        for (GameObject other : gameObjects) {
+            if (isColliding(other) != null) {
+                return other;
+            }
+        }
+        return null;
+    }
+
+    public GameObject isColliding(GameObject other) {
+        if (this != other && other != null) {
+            double distance = Math.pow(this.drawX - other.drawX, 2)
+                    + Math.pow(this.drawY - other.drawY, 2);
+            double radii = Math.pow(this.radius + other.radius, 2);
+            if (distance < radii) {
+                return other;
+            }
+        }
+        return null;
+    }
 }

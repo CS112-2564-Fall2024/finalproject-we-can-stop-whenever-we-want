@@ -50,26 +50,38 @@ public class GameStart {
                 public void handle(long now) {
                     gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
                     gc.drawImage(back, 0, 0);
-//                    gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
                     handleObjectUpdate();
 //                    handleCollision();
                     handleRespawn();
 
+
+
+
                     handleObjects();
 
 //                    controller.handleUIUpdate();
 
+
                 }
+
+
 
                 public void handleObjects() {
                     player.update();
                     player.draw(gc);
 
                 }
+                public void endGame() {
+                    controller.gameOver();
+                    this.stop();
+                }
+
             };
             timer.start();
         }
+
+
 
 
 
@@ -83,6 +95,9 @@ public class GameStart {
             alien.draw(gc);
             if (alien.getPositionY() > 840) {
                 offscreen = alien;
+               controller.loseLife();
+               controller.gameOver();
+
             }
         }
         for (GameObject boolet : bulletList) {
@@ -100,10 +115,10 @@ public class GameStart {
     }
 
 //    public void handleCollision() {
-//        GameObject collision = player.isColliding(alienList);
+//        GameObject collision = boolet.isColliding(alienList);
 //        if (collision instanceof AlienObject<?> alienObject) {
 //            if (alienObject.getAlienObject() instanceof Normal) {
-//                player.takeDamage(1);
+//                ;
 //            }
 //        }
 //    }
@@ -130,7 +145,7 @@ public class GameStart {
     public Boolet spawnBullet(double px) {
 
 
-        return new Boolet<>(new Bullet(),px);  // Assuming Bullet is a Drawable class
+        return new Boolet<>(new Bullet(),px);
     }
 
 
@@ -140,7 +155,7 @@ public class GameStart {
         switch (event.getCode()) {
             case LEFT: player.setDeltaX(-1.25); break;
             case RIGHT: player.setDeltaX(1.25); break;
-            case SPACE: Boolet newBoolet = spawnBullet(player.drawX);bulletList.add(newBoolet); break;
+            case SPACE: Boolet newBoolet = spawnBullet(player.drawX);bulletList.add(newBoolet);
             default: break;
         }
     }
