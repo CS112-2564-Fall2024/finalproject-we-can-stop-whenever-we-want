@@ -9,7 +9,7 @@ public class Tank implements Drawable {
 
     public Tank() {
         if (ship2 == null) {
-            ship2 = new Image("file:.src/main/resources/Images/alien.png");
+            ship2 = new Image("file:./src/main/resources/Images/alien2.png");
         }
     }
 

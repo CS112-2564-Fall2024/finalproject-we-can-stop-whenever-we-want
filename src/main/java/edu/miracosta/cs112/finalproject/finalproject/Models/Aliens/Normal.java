@@ -10,7 +10,7 @@ public class Normal implements Drawable {
 
     public Normal() {
         if (ship == null) {
-            ship = new Image("file:.src/main/resources/Images/alien.png");
+            ship = new Image("file:./src/main/resources/Images/alien.png");
         }
     }
 

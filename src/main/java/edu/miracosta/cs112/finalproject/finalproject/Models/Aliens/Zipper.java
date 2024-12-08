@@ -9,7 +9,7 @@ public class Zipper implements Drawable {
 
     public Zipper() {
         if (ship3 == null) {
-            ship3 = new Image("file:.src/main/resources/Images/alien.png");
+            ship3 = new Image("file:./src/main/resources/Images/alien3.png");
         }
     }
 

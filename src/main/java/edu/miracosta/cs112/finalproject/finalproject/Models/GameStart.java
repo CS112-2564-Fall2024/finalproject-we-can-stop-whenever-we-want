@@ -7,11 +7,15 @@ import edu.miracosta.cs112.finalproject.finalproject.controllers.gameController;
 import javafx.animation.AnimationTimer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.Background;
 import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 import java.util.Random;
+
+import static edu.miracosta.cs112.finalproject.finalproject.Constants.BACK_IMAGE_PATH;
 
 public class GameStart {
 
@@ -35,14 +39,15 @@ public class GameStart {
             this.controller = controller;
             player = new Player();
             gc = canvas.getGraphicsContext2D();
+            Image back = new Image(BACK_IMAGE_PATH);
 
 
             AnimationTimer timer = new AnimationTimer() {
                 @Override
                 public void handle(long now) {
                     gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
-                    gc.setFill(Color.BLACK);
-                    gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
+                    gc.drawImage(back, 0, 0);
+//                    gc.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
 
                     handleObjectUpdate();
 //                    handleCollision();
@@ -101,10 +106,11 @@ public class GameStart {
     }
 
     public GameObject spawnGameObject() {
-        int next = random.nextInt(2);
+        int next = random.nextInt(4);
         return switch (next) {
             case 0 -> new AlienObject<>(new Zipper());
             case 1 -> new AlienObject<>(new Tank());
+            case 2 -> new AlienObject<>(new Normal());
             default -> new AlienObject<>(new Normal());
         };
     }

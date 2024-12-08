@@ -28,7 +28,7 @@ public class gameController {
     @FXML
     ImageView lifeThree;
     @FXML
-    Canvas canvas; // Used ai to fix the canvas fxml
+    Canvas canvas; // Used AI to fix the canvas fxml
 
     //private GraphicsContext gc;
     GameStart gameStart;
@@ -37,6 +37,11 @@ public class gameController {
 
     //Random random = new Random();
     public void initialize(){
+        if (canvas == null) {
+            System.out.println("Canvas is null!");
+            return;
+        }
+
 
         gameStart = new GameStart(canvas, this);
 
@@ -45,9 +50,21 @@ public class gameController {
 
         scoreGoesHere.setText(SCORE_TEXT);
         Image image = new Image(PLAYER_IMAGE_PATH);
+        Image back = new Image(BACK_IMAGE_PATH);
         lifeOne.setImage(image);
         lifeTwo.setImage(image);
         lifeThree.setImage(image);
+        if (back.isError()) {
+            System.out.println("Error loading image!");
+            return;
+        }
+
+        // Get the GraphicsContext of the Canvas
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+
+        // Draw the image on the canvas at position (50, 50)
+        gc.drawImage(back,canvas.getWidth() , canvas.getHeight()); // You can also specify width and height if needed
+
 
 
     }
