@@ -130,7 +130,7 @@ public class GameStart {
     public Boolet spawnBullet(double px) {
 
 
-        return new Boolet<>(new Bullet(),px);  // Assuming Bullet is a Drawable class
+        return new Boolet<>(new Bullet(),px);
     }
 
 
