@@ -35,35 +35,61 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.shape.Rectangle?>
 <VBox onKeyPressed="#handleKeyPressed" onKeyReleased="#handleKeyReleased" prefHeight="900.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.miracosta.cs112.finalproject.finalproject.controllers.gameController">
    <children>
-      <Pane prefHeight="60.0" prefWidth="600.0">
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
          <children>
-            <Text layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCORE:">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <Label fx:id="scoreGoesHere" layoutX="99.0" layoutY="10.0" prefHeight="32.0" prefWidth="261.0" text="000">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Label>
-            <Text layoutX="411.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LIVES:">
-               <font>
-                  <Font size="24.0" />
-               </font>
-            </Text>
-            <ImageView fx:id="lifeOne" fitHeight="32.0" fitWidth="30.0" layoutX="483.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="lifeTwo" fitHeight="32.0" fitWidth="30.0" layoutX="513.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
-            <ImageView fx:id="lifeThree" fitHeight="32.0" fitWidth="30.0" layoutX="543.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+            <Pane prefHeight="60.0" prefWidth="600.0">
+               <children>
+                  <Text layoutX="14.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="SCORE:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="scoreGoesHere" layoutX="99.0" layoutY="10.0" prefHeight="32.0" prefWidth="261.0" text="000">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Text layoutX="411.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LIVES:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="lifeOne" fitHeight="32.0" fitWidth="30.0" layoutX="483.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="lifeTwo" fitHeight="32.0" fitWidth="30.0" layoutX="513.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="lifeThree" fitHeight="32.0" fitWidth="30.0" layoutX="543.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+            <Canvas fx:id="canvas" height="840.0" layoutY="60.0" width="600.0" />
+            <Pane fx:id="gameResults" layoutX="129.0" layoutY="280.0" prefHeight="200.0" prefWidth="343.0" visible="false">
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1fb1ff" height="200.0"  stroke="BLACK" strokeType="INSIDE" width="343.0" />
+                  <Text layoutX="23.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Game Over" wrappingWidth="297.13671875">
+                     <font>
+                        <Font size="56.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="71.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Score:" wrappingWidth="77.40234375">
+                     <font>
+                        <Font size="28.0" />
+                     </font>
+                  </Text>
+                  <Label fx:id="scoreGoesHere1" layoutX="148.0" layoutY="105.0" prefHeight="35.0" prefWidth="195.0" text="000">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
          </children>
-      </Pane>
-      <Canvas fx:id="canvas" height="840.0" width="600.0" />
+      </AnchorPane>
    </children>
 </VBox>
