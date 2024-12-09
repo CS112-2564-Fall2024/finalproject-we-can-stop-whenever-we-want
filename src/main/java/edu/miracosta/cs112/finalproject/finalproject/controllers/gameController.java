@@ -27,6 +27,8 @@ public class gameController {
     Canvas canvas;// Used AI to fix the canvas fxml
     @FXML
     Pane gameResults;
+    @FXML
+    Label scoreGoesHere1;
 
     //private GraphicsContext gc;
     GameStart gameStart;
@@ -45,13 +47,18 @@ public class gameController {
         canvas.setFocusTraversable(true);
         canvas.requestFocus();
 
-        scoreGoesHere.setText(SCORE_TEXT);
+        scoreGoesHere.setText(String.valueOf(SCORE_TEXT));
+        scoreGoesHere1.setText(String.valueOf(SCORE_TEXT));
         Image image = new Image(PLAYER_IMAGE_PATH);
         lifeOne.setImage(image);
         lifeTwo.setImage(image);
         lifeThree.setImage(image);
 
 
+    }
+
+    public void handleUI(){
+        scoreGoesHere.setText(String.valueOf(SCORE_TEXT));
     }
 
     public void loseLife(){
@@ -70,6 +77,7 @@ public class gameController {
 
     public void gameOver(){
         if (!LifeOne && !LifeTwo && !LifeThree) {
+            scoreGoesHere1.setText(String.valueOf(SCORE_TEXT));
             endGame();
             //gameStart.endGame();
         }

@@ -1,5 +1,6 @@
 package edu.miracosta.cs112.finalproject.finalproject.Models;
 
+import edu.miracosta.cs112.finalproject.finalproject.Constants;
 import edu.miracosta.cs112.finalproject.finalproject.Models.Aliens.Normal;
 import edu.miracosta.cs112.finalproject.finalproject.Models.Aliens.Tank;
 import edu.miracosta.cs112.finalproject.finalproject.Models.Aliens.Zipper;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import static edu.miracosta.cs112.finalproject.finalproject.Constants.BACK_IMAGE_PATH;
+import static edu.miracosta.cs112.finalproject.finalproject.Constants.SCORE_TEXT;
 
 public class GameStart {
 
@@ -125,14 +127,23 @@ public class GameStart {
 
                     if (alienObject.getAlienObject() instanceof Normal) {
                         System.out.println("Normal");
+                        Constants.SCORE_TEXT = scoring.scoreUpdate("normal" , Constants.SCORE_TEXT);
+                        controller.handleUI();
+                        System.out.println(SCORE_TEXT);
                         break;
                     }
                     if (alienObject.getAlienObject() instanceof Tank) {
                         System.out.println("Tank");
+                        Constants.SCORE_TEXT = scoring.scoreUpdate("tank" , Constants.SCORE_TEXT);
+                        controller.handleUI();
+                        System.out.println(SCORE_TEXT);
                         break;
                     }
                     if (alienObject.getAlienObject() instanceof Zipper) {
                         System.out.println("Zipper");
+                        Constants.SCORE_TEXT = scoring.scoreUpdate("zipper" , Constants.SCORE_TEXT);
+                        controller.handleUI();
+                        System.out.println(SCORE_TEXT);
                         break;
                     }
                 }

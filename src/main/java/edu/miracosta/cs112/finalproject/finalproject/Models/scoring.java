@@ -10,17 +10,17 @@ import static edu.miracosta.cs112.finalproject.finalproject.Constants.HIGHSCORE_
 
 public class scoring {
 
-    public int scoreUpdate(int alienType){
-        int score = 0;
-        if(alienType == 1){
-            score += 10;
+    public static int scoreUpdate(String alienType, int score){
+        if(alienType == "normal"){
+            score = score + 10;
         }
-        else if(alienType == 2){
-            score += 20;
+        else if(alienType == "zipper"){
+            score = score + 15;
         }
-        else if(alienType == 3){
-            score += 20;
+        else if(alienType == "tank"){
+            score = score += 20;
         }
+        System.out.println(score);
         return score;
     }
 
