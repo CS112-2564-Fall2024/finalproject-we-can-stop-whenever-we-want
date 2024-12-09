@@ -23,7 +23,7 @@ public class Player extends GameObject {
 
 
     public Player() {
-        super(300,750, 25);
+        super(300,725, 25);
         image = new Image(PLAYER_IMAGE_PATH);
         image2 = new Image(PLAYER_IMAGE2_PATH);
         drawWidth = 100;

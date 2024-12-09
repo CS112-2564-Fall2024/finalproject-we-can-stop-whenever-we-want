@@ -19,7 +19,8 @@ public class GameStart {
 
     double respawnReset = 10;
     double respawn = 10;
-    double fireRate = 2;
+    private final double fireRate = 0.4;
+    private double sinceLastShot = 0;
 
     gameController controller;
     GraphicsContext gc;
@@ -29,7 +30,6 @@ public class GameStart {
 
 
     Player player;
-//    public Player getPlayer() { return player; }
 
     ArrayList<GameObject> alienList = new ArrayList<>();
     ArrayList<GameObject> bulletList = new ArrayList<>();
@@ -52,7 +52,7 @@ public class GameStart {
                     gc.drawImage(back, 0, 0);
 
                     handleObjectUpdate();
-//                    handleCollision();
+                    handleCollision();
                     handleRespawn();
 
 
@@ -114,14 +114,34 @@ public class GameStart {
         }
     }
 
-//    public void handleCollision() {
-//        GameObject collision = boolet.isColliding(alienList);
-//        if (collision instanceof AlienObject<?> alienObject) {
-//            if (alienObject.getAlienObject() instanceof Normal) {
-//                ;
-//            }
-//        }
-//    }
+    public void handleCollision() {
+            GameObject collidedAlien = null;
+            GameObject collidedBullet = null;
+
+            for (GameObject boolet : bulletList){
+                collidedAlien = boolet.isColliding(alienList);
+                if (collidedAlien instanceof AlienObject<?> alienObject) {
+                    collidedBullet = boolet;
+
+                    if (alienObject.getAlienObject() instanceof Normal) {
+                        System.out.println("Normal");
+                        break;
+                    }
+                    if (alienObject.getAlienObject() instanceof Tank) {
+                        System.out.println("Tank");
+                        break;
+                    }
+                    if (alienObject.getAlienObject() instanceof Zipper) {
+                        System.out.println("Zipper");
+                        break;
+                    }
+                }
+            }
+            if (collidedAlien != null && collidedBullet != null){
+                alienList.remove(collidedAlien);
+                bulletList.remove(collidedBullet);
+            }
+    }
 
     public void handleRespawn() {
         respawn -= 0.1;
@@ -155,9 +175,20 @@ public class GameStart {
         switch (event.getCode()) {
             case LEFT: player.setDeltaX(-1.25); break;
             case RIGHT: player.setDeltaX(1.25); break;
-            case SPACE: Boolet newBoolet = spawnBullet(player.drawX);bulletList.add(newBoolet);
+            case SPACE:
+                if(canShoot()){
+                    Boolet newBoolet = spawnBullet(player.drawX);bulletList.add(newBoolet);
+                    sinceLastShot = System.currentTimeMillis() / 1000.0;
+                }
             default: break;
         }
+    }
+
+
+    private boolean canShoot() {
+        //used AI for this calculation
+        double time = System.currentTimeMillis() / 1000.0;
+        return time - sinceLastShot >= fireRate;
     }
 
     public void handleKeyReleased(KeyEvent event) {
