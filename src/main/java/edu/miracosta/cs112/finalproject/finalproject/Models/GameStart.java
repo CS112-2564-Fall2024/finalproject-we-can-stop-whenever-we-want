@@ -37,7 +37,7 @@ public class GameStart {
     ArrayList<GameObject> bulletList = new ArrayList<>();
 
 
-
+AnimationTimer timer;
 
         public GameStart(Canvas canvas, gameController controller) {
 
@@ -47,7 +47,7 @@ public class GameStart {
             Image back = new Image(BACK_IMAGE_PATH);
 
 
-            AnimationTimer timer = new AnimationTimer() {
+            timer = new AnimationTimer() {
                 @Override
                 public void handle(long now) {
                     gc.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
@@ -74,14 +74,13 @@ public class GameStart {
                     player.draw(gc);
 
                 }
-                public void endGame() {
-                    controller.gameOver();
-                    this.stop();
-                }
-
+                
             };
             timer.start();
         }
+                public void endGame() {
+                    timer.stop();
+                }
 
 
 
