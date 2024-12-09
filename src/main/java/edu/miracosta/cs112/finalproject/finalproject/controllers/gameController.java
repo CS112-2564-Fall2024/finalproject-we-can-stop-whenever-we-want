@@ -78,6 +78,7 @@ public class gameController {
     public void gameOver(){
         if (!LifeOne && !LifeTwo && !LifeThree) {
             scoreGoesHere1.setText(String.valueOf(SCORE_TEXT));
+
             endGame();
             //gameStart.endGame();
         }

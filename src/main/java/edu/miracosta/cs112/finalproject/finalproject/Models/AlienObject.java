@@ -23,7 +23,7 @@ public class AlienObject <A extends Drawable> extends GameObject {
 
     @Override
     public void update() {
-        this.drawY += 1;
+        this.drawY += 3;
     }
 
     @Override

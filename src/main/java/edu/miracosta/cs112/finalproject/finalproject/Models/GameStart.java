@@ -19,9 +19,9 @@ import static edu.miracosta.cs112.finalproject.finalproject.Constants.SCORE_TEXT
 
 public class GameStart {
 
-    double respawnReset = 10;
-    double respawn = 10;
-    private final double fireRate = 0.4;
+    double respawnReset = 4;
+    double respawn = 4;
+    private final double fireRate = 0.2;
     private double sinceLastShot = 0;
 
     gameController controller;
@@ -184,8 +184,8 @@ public class GameStart {
 
 
         switch (event.getCode()) {
-            case LEFT: player.setDeltaX(-1.25); break;
-            case RIGHT: player.setDeltaX(1.25); break;
+            case LEFT: player.setDeltaX(-3); break;
+            case RIGHT: player.setDeltaX(3); break;
             case SPACE:
                 if(canShoot()){
                     Boolet newBoolet = spawnBullet(player.drawX);bulletList.add(newBoolet);

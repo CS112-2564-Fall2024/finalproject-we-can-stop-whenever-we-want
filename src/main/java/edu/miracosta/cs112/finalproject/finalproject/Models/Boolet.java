@@ -24,7 +24,7 @@ public class Boolet <B extends Drawable> extends GameObject {
 
     @Override
     public void update() {
-        this.drawY -= 5;
+        this.drawY -= 7;
     }
 
     @Override
