@@ -60,7 +60,11 @@ AnimationTimer timer;
                     gc.drawImage(back, 0, 0);
 
                     handleObjectUpdate();
-                    handleCollision();
+                    try {
+                        handleCollision();
+                    } catch (customExectption e) {
+                        throw new RuntimeException(e);
+                    }
                     handleRespawn();
 
 
@@ -136,6 +140,8 @@ AnimationTimer timer;
                         controller.handleUI();
                         System.out.println(SCORE_TEXT);
                         break;
+                    } else if (collidedAlien != null && collidedBullet != null){
+                        throw new customExectption("alien or bullet does not exist");
                     }
                     if (alienObject.getAlienObject() instanceof Tank) {
                         System.out.println("Tank");
@@ -156,8 +162,6 @@ AnimationTimer timer;
             if (collidedAlien != null && collidedBullet != null){
                 alienList.remove(collidedAlien);
                 bulletList.remove(collidedBullet);
-            } else {
-                throw new customExectption("alien or bullet does not exist");
             }
     }
 
