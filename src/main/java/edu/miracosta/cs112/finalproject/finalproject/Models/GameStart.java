@@ -140,8 +140,6 @@ AnimationTimer timer;
                         controller.handleUI();
                         System.out.println(SCORE_TEXT);
                         break;
-                    } else if (collidedAlien != null && collidedBullet != null){
-                        throw new customExectption("alien or bullet does not exist");
                     }
                     if (alienObject.getAlienObject() instanceof Tank) {
                         System.out.println("Tank");
@@ -157,6 +155,10 @@ AnimationTimer timer;
                         System.out.println(SCORE_TEXT);
                         break;
                     }
+
+                }
+                else if (collidedAlien != null && collidedBullet != null){
+                    throw new customExectption("alien or bullet does not exist");
                 }
             }
             if (collidedAlien != null && collidedBullet != null){
