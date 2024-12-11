@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="openjdk-21.0">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Downloads/2024/openjdk-21.0.1_windows-x64_bin" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
