@@ -6,15 +6,18 @@ import java.util.Random;
 
 public class AlienObject <A extends Drawable> extends GameObject {
     static Random random = new Random();
+    private double dy;
 
     private A alien;
-    public AlienObject(A alien) {
+    public AlienObject(A alien, double dy) {
 
         super(random.nextDouble(50,550), 0, 20);
         setAlien(alien);
+        this.dy = dy;
 
     }
     public A getAlienObject() {return alien;
+
     }
 
     public void setAlien(A alien) {
@@ -23,7 +26,7 @@ public class AlienObject <A extends Drawable> extends GameObject {
 
     @Override
     public void update() {
-        this.drawY += 3;
+        this.drawY += dy;
     }
 
     @Override

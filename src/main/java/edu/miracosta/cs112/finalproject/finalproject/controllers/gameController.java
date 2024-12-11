@@ -108,7 +108,7 @@ public class gameController {
 
 
     public void endGame(){
-
+        gameStart.endGame();
         gameResults.setVisible(true);
     }
 

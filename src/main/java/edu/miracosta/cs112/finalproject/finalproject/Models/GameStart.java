@@ -165,10 +165,10 @@ AnimationTimer timer;
     public GameObject spawnGameObject() {
         int next = random.nextInt(4);
         return switch (next) {
-            case 0 -> new AlienObject<>(new Zipper());
-            case 1 -> new AlienObject<>(new Tank());
-            case 2 -> new AlienObject<>(new Normal());
-            default -> new AlienObject<>(new Normal());
+            case 0 -> new AlienObject<>(new Zipper(),4);
+            case 1 -> new AlienObject<>(new Tank(),2);
+            case 2 -> new AlienObject<>(new Normal(),3);
+            default -> new AlienObject<>(new Normal(),3);
         };
     }
 
