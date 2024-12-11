@@ -36,6 +36,12 @@ public class GameStart {
     ArrayList<GameObject> alienList = new ArrayList<>();
     ArrayList<GameObject> bulletList = new ArrayList<>();
 
+        class customExectption extends Exception {
+            public customExectption(String message){
+                super(message);
+            }
+        }
+
 
 AnimationTimer timer;
 
@@ -115,7 +121,7 @@ AnimationTimer timer;
         }
     }
 
-    public void handleCollision() {
+    public void handleCollision() throws customExectption {
             GameObject collidedAlien = null;
             GameObject collidedBullet = null;
 
@@ -150,6 +156,8 @@ AnimationTimer timer;
             if (collidedAlien != null && collidedBullet != null){
                 alienList.remove(collidedAlien);
                 bulletList.remove(collidedBullet);
+            } else {
+                throw new customExectption("alien or bullet does not exist");
             }
     }
 
